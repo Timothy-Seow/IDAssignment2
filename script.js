@@ -19,6 +19,25 @@ fetch('http://ddragon.leagueoflegends.com/cdn/10.25.1/data/en_US/champion.json')
 
         console.log(champlist)
 
+        $.each(champlist, function(index, value){
+            $('#container').append(
+                $('<div/>')
+                .addClass("card")
+                .append(
+                $('<img/>')
+                .addClass("card-image")
+                .attr("src", value[2]),
+                $('<div/>')
+                .addClass("card-body")
+                .append(
+                $('<h5/>')
+                .addClass("card-title")
+                .text(value[0]),
+                $('<p/>')
+                .addClass("card-text")
+                .text(value[1])
+            )));
 
         });
+    })
 
