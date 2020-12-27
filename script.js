@@ -26,7 +26,8 @@ fetch('http://ddragon.leagueoflegends.com/cdn/10.25.1/data/en_US/champion.json')
                 .append(
                 $('<img/>')
                 .addClass("card-image")
-                .attr("src", value[2]),
+                .attr("src", value[2])
+                .attr("alt", value[0]),
                 $('<div/>')
                 .addClass("card-body")
                 .append(
@@ -37,7 +38,6 @@ fetch('http://ddragon.leagueoflegends.com/cdn/10.25.1/data/en_US/champion.json')
                 .addClass("card-text")
                 .text(value[1])
             )));
-
         });
     })
 
