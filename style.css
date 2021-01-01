@@ -1,7 +1,7 @@
 body {
     background-color: grey;
 }
-#container{
+#champion{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -19,7 +19,7 @@ body {
     text-transform: capitalize;
     text-align: center;
 }
-.card-image{
+.champion-card-image{
     display: flex;
     height: 200px;
     width: 350px;
@@ -31,4 +31,19 @@ body {
     height: 250px;
     padding: 20px 0px 0px 0px;
     text-align: center;
+}
+
+#item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.item-card-image{
+    display: flex;
+    height: 150px;
+    width: 150px;
+    margin-top: 1.5em;
+    border-radius: 10px;
+    align-content: center;
 }
