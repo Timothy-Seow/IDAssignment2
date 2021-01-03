@@ -1,15 +1,48 @@
 body {
     background-color: grey;
 }
-#champion{
+#champ-container{
     display: flex;
+    justify-content: center;
+}
+.champion{
+    display: flex;
+    width: 70%;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.champbox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    align-content: center;
+    margin-top: 3em;
+    border-radius: 20px;
+    background-color: snow;
+}
+.champ-title{
+    text-transform: capitalize;
+    text-align: center;
+}
+.champ-body{
+    width: 100%;
+    height: 200px;
+    padding: 20px 0px 0px 0px;
+    text-align: center;
+}
+.champ-image{
+    display: flex;
+    height: 120px;
+    width: 120px;
+    margin-top: 1.2em;
+    border-radius: 10px;
+}
 .card{
     display: flex;
-    width: 400px;
-    height: 450px;
+    width: 170px;
+    height: 170px;
     align-items: center;
     align-content: center;
     margin-top: 3em;
@@ -19,31 +52,41 @@ body {
     text-transform: capitalize;
     text-align: center;
 }
-.champion-card-image{
-    display: flex;
-    height: 200px;
-    width: 350px;
-    margin-top: 1.5em;
-    border-radius: 10px;
-}
 .card-body{
-    width: 350px;
-    height: 250px;
+    width: 170px;
+    height: 100px;
     padding: 20px 0px 0px 0px;
     text-align: center;
 }
-
+#item-container{
+    display: flex;
+    justify-content: center;
+}
 #item{
     display: flex;
+    width: 70%;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
 .item-card-image{
     display: flex;
-    height: 150px;
-    width: 150px;
+    height: 64px;
+    width: 64px;
     margin-top: 1.5em;
     border-radius: 10px;
     align-content: center;
 }
+.champ-name{
+    margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+
+
