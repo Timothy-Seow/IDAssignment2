@@ -7,24 +7,10 @@ body {
 }
 .champion{
     display: flex;
-    width: 70%;
+    width: 75%;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-.champbox{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 200px;
-    align-items: center;
-    align-content: center;
-    margin-top: 3em;
-    border-radius: 20px;
-    background-color: snow;
-}
-.champ-title{
-    text-transform: capitalize;
-    text-align: center;
+    margin-top: 100px;
+    justify-content: space-around;
 }
 .champ-body{
     width: 100%;
@@ -33,10 +19,9 @@ body {
     text-align: center;
 }
 .champ-image{
-    display: flex;
     height: 120px;
     width: 120px;
-    margin-top: 1.2em;
+    margin-top: 12px;
     border-radius: 10px;
 }
 .card{
@@ -78,15 +63,42 @@ body {
     align-content: center;
 }
 .champ-name{
-    margin-top: 1em;
+    margin-top: 8px;
 }
 
+.indiv-champ{
+    width: 150px;
+    height: 180px;
+    border-radius: 20px;
+}
 
+.champ-header{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    flex-wrap: wrap;
+}
+.champ-details{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.champ-title{
+    text-transform: capitalize;
+    text-align: center;
+    width: 70%;
+}
 
+.champ-stats{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: space-around;
+}
 
-
-
-
-
-
-
+.champ-info{
+    display: flex;
+    justify-content: space-between;
+    height: 400px;
+}
