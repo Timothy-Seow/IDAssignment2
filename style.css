@@ -4,6 +4,7 @@ body {
 #champ-container{
     display: flex;
     justify-content: center;
+    background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
 }
 .champion{
     display: flex;
@@ -70,12 +71,13 @@ body {
     width: 150px;
     height: 180px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 
 .champ-header{
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 60%;
     flex-wrap: wrap;
 }
 .champ-details{
@@ -83,6 +85,8 @@ body {
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 .champ-title{
     text-transform: capitalize;
@@ -90,15 +94,38 @@ body {
     width: 70%;
 }
 
-.champ-stats{
+.champ-stats-holder{
     display: flex;
+}
+.champ-stats{
+    display:flex;
     flex-direction: column;
-    width: 40%;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .champ-info{
     display: flex;
-    justify-content: space-between;
-    height: 400px;
+    justify-content: space-around;
+    background-color: snow;
+    width: 80%;
+    flex-wrap: wrap;
+}
+.champ-desc{
+    text-align: center;
+}
+
+.champ-ability{
+    margin-top: 30px;
+    width: 90%;
+}
+.champ-spell{
+    margin-bottom: 20px;
+}
+.ability-header{
+    display: flex;
+}
+.ability-info{
+    height: auto;
+    line-height: 0.3;
+    margin-left: 10px;
 }
