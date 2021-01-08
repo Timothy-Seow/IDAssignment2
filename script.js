@@ -1,3 +1,4 @@
+// To change page into Specific Champion Info when Champion is clicked
 function changechamp(name){
     var changechamp = document.getElementById('champ')
     changechamp.innerHTML = "";
@@ -23,7 +24,15 @@ function changechamp(name){
                         })
                         abilitylist.push([obj.passive.image.full,obj.passive.name,obj.passive.description])
                         $.each(obj.spells, function(key,obj){
-                            abilitylist.push([obj.id,obj.name,obj.description,obj.costBurn,obj.rangeBurn])
+                            if (obj.costBurn === "0" && obj.costType !== "No Cost"){
+                                var x = obj.resource;
+                                var cost = x.replace(/\{.*\}/, obj.effectBurn[2]);
+                            }
+                            else{
+                                var x = obj.costType;
+                                var cost = x.replace("{{ abilityresourcename }}", obj.costBurn + " Mana")
+                            }
+                            abilitylist.push([obj.id,obj.name,obj.description,cost,obj.rangeBurn])
                         })
                         championlist.push(info_name, info_lore)
                         console.log(abilitylist)
@@ -131,7 +140,7 @@ function changechamp(name){
                                             $('<h5/>')
                                             .text(abilitylist[1][1]),
                                             $('<p/>')
-                                            .text("Cost: {0} Mana".format(abilitylist[1][3])),
+                                            .text("Cost: {0}".format(abilitylist[1][3])),
                                             $('<p/>')
                                             .text("Range: " + abilitylist[1][4])
                                         )
@@ -157,7 +166,7 @@ function changechamp(name){
                                             $('<h5/>')
                                             .text(abilitylist[2][1]),
                                             $('<p/>')
-                                            .text("Cost: {0} Mana".format(abilitylist[2][3])),
+                                            .text("Cost: {0}".format(abilitylist[2][3])),
                                             $('<p/>')
                                             .text("Range: " + abilitylist[2][4])
                                         )
@@ -183,7 +192,7 @@ function changechamp(name){
                                             $('<h5/>')
                                             .text(abilitylist[3][1]),
                                             $('<p/>')
-                                            .text("Cost: {0} Mana".format(abilitylist[3][3])),
+                                            .text("Cost: {0}".format(abilitylist[3][3])),
                                             $('<p/>')
                                             .text("Range: " + abilitylist[3][4])
                                         )
@@ -209,7 +218,7 @@ function changechamp(name){
                                             $('<h5/>')
                                             .text(abilitylist[4][1]),
                                             $('<p/>')
-                                            .text("Cost: {0} Mana".format(abilitylist[4][3])),
+                                            .text("Cost: {0}".format(abilitylist[4][3])),
                                             $('<p/>')
                                             .text("Range: " + abilitylist[4][4])
                                         )
@@ -228,84 +237,86 @@ function changechamp(name){
     )
 }
 
+// Appending Champion Page Content
 var champlist = [];
 fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json')
-    .then(res => res.json())
-    .then(function(data){
-        let champion = data.data;
+.then(res => res.json())
+.then(function(data){
+    let champion = data.data;
 
-        var content1 = "";
-        var content2 = "";
-        var content3 = "";
-        $.each(champion, function(key, obj) {
-            const imagelink = `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${key}.png`
-            content1 = key;
-            content2 = key + ", " + obj.title;
-            content3 = obj.blurb;
-            champlist.push([content1,content2,content3,imagelink])
-            });
-
-        $.each(champlist, function(index, value){
-            $('.champion').append(
-                $('<button/>')
-                .attr("id", value[0])
-                .attr("onclick", "changechamp(this.id)")
-                .addClass("indiv-champ")
-                .append(
-                    $('<img/>')
-                    .addClass("champ-image")
-                    .attr("src", value[3])
-                    .attr("alt", value[0])
-                    
-                )
-                .append(
-                    $('<h5/>')
-                    .addClass("champ-name")
-                    .text(value[0])
-                )
-            )
-
+    var content1 = "";
+    var content2 = "";
+    var content3 = "";
+    $.each(champion, function(key, obj) {
+        const imagelink = `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${key}.png`
+        content1 = key;
+        content2 = key + ", " + obj.title;
+        content3 = obj.blurb;
+        champlist.push([content1,content2,content3,imagelink])
         });
 
-    })
-
-
-fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
-    .then(res => res.json())
-    .then(function(data){
-        let item = data.data;
-
-        var itemlist = [];
-        var value1 = "";
-        var value2 = "";
-        $.each(item, function(key, obj) {
-            const imagelink = `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/item/${key}.png`
-            value1 = obj.name;
-            itemlist.push([value1,imagelink])
-            });
-
-        $.each(itemlist, function(index, value){
-            $('#item').append(
-                $('<div/>')
-                .addClass("card")
-                .append(
+    $.each(champlist, function(index, value){
+        $('.champion').append(
+            $('<button/>')
+            .attr("id", value[0])
+            .attr("onclick", "changechamp(this.id)")
+            .addClass("indiv-champ")
+            .append(
                 $('<img/>')
-                .addClass("item-card-image")
-                .attr("src", value[1])
-                .attr("alt", value[0]),
-                $('<div/>')
-                .addClass("card-body")
-                .append(
+                .addClass("champ-image")
+                .attr("src", value[3])
+                .attr("alt", value[0])
+                
+            )
+            .append(
                 $('<h5/>')
-                .addClass("card-title")
-                .text(value[0]),
-            )));
+                .addClass("champ-name")
+                .text(value[0])
+            )
+        )
+
+    });
+
+})
+
+// Appending Item Page Content
+fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
+.then(res => res.json())
+.then(function(data){
+    let item = data.data;
+
+    var itemlist = [];
+    var value1 = "";
+    var value2 = "";
+    $.each(item, function(key, obj) {
+        const imagelink = `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/item/${key}.png`
+        value1 = obj.name;
+        itemlist.push([value1,imagelink])
         });
 
-    })
+    $.each(itemlist, function(index, value){
+        $('#item').append(
+            $('<div/>')
+            .addClass("card")
+            .append(
+            $('<img/>')
+            .addClass("item-card-image")
+            .attr("src", value[1])
+            .attr("alt", value[0]),
+            $('<div/>')
+            .addClass("card-body")
+            .append(
+            $('<h5/>')
+            .addClass("card-title")
+            .text(value[0]),
+        )));
+    });
 
+})
+
+
+// To Allow Text Formatting Function
 String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
     };
-
