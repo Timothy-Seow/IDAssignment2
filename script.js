@@ -5,9 +5,9 @@ function changechamp(name){
     var championlist = [];
     var statslist = [];
     var abilitylist = [];
-    champlist.forEach( char => {
-        if (name === char[0]){
-            fetch(`http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${char[0]}.json`)
+    $.each(champlist, function(key, obj){
+        if (name === obj[0]){
+            fetch(`http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${obj[0]}.json`)
                 .then(res => res.json())
                 .then(function(data){
                     let champ = data.data
@@ -17,6 +17,7 @@ function changechamp(name){
                     $.each(champ, function(key, obj) {
                         info_name = obj.name + ", " + obj.title;
                         info_lore = obj.lore;
+                        info_tags = obj.tags;
                         $.each(obj.stats, function(key,obj){
                             if (key !== "crit" && key !== "critperlevel"){
                                 statslist.push(obj)
@@ -34,7 +35,7 @@ function changechamp(name){
                             }
                             abilitylist.push([obj.id,obj.name,obj.description,cost,obj.rangeBurn])
                         })
-                        championlist.push(info_name, info_lore)
+                        championlist.push(info_name, info_lore, info_tags)
                         console.log(abilitylist)
                     })
                     $('#champ').append(
@@ -51,14 +52,16 @@ function changechamp(name){
                                     .addClass("champ-icon")
                                     .append(
                                         $('<img/>')
-                                        .attr("src", `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${char[0]}.png`)
+                                        .attr("src", `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${obj[0]}.png`)
                                     ),
                                     $('<div/>')
                                     .addClass("champ-title")
                                     .append(
+                                        $('<h4/>')
+                                        .text(championlist[0]),
                                         $('<h5/>')
-                                        .text(championlist[0])
-                                    )
+                                        .text("Tags: " + championlist[2])
+                                    ),
                                 )
                             )
                             .append(
@@ -75,25 +78,25 @@ function changechamp(name){
                                 $('<div/>')
                                 .addClass("champ-stats")
                                 .append(
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Health: {0} (+{1} Per Level)".format(statslist[0],statslist[1])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Health Regen: {0} (+{1} Per Level)".format(statslist[10],statslist[11])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Mana: {0} (+{1} Per Level)".format(statslist[2],statslist[3])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Mana Regen: {0} (+{1} Per Level)".format(statslist[12],statslist[13])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Attack Damage: {0} (+{1} Per Level)".format(statslist[14],statslist[15])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Attack Speed: {0} (+{1} Per Level)".format(statslist[17],statslist[16])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Attack Range: {0}".format(statslist[9])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Armor: {0} (+{1} Per Level)".format(statslist[5],statslist[6])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Magic Resist: {0} (+{1} Per Level)".format(statslist[7],statslist[8])),
-                                    $('<h6/>')
+                                    $('<h5/>')
                                     .text("Movement Speed: {0}".format(statslist[4]))
                                 )
                             ),
