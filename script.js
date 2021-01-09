@@ -5,15 +5,16 @@ function changechamp(name){
     var championlist = [];
     var statslist = [];
     var abilitylist = [];
-    $.each(champlist, function(key, obj){
-        if (name === obj[0]){
-            fetch(`http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${obj[0]}.json`)
+    $.each(champlist, function(index, value){
+        if (name === value[0]){
+            fetch(`http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${value[0]}.json`)
                 .then(res => res.json())
                 .then(function(data){
                     let champ = data.data
                     console.log(champ)
                     var info_name = "";
                     var info_lore = "";
+                    var info_tags = "";
                     $.each(champ, function(key, obj) {
                         info_name = obj.name + ", " + obj.title;
                         info_lore = obj.lore;
@@ -52,7 +53,7 @@ function changechamp(name){
                                     .addClass("champ-icon")
                                     .append(
                                         $('<img/>')
-                                        .attr("src", `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${obj[0]}.png`)
+                                        .attr("src", `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/${value[0]}.png`)
                                     ),
                                     $('<div/>')
                                     .addClass("champ-title")
@@ -287,35 +288,77 @@ fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
 .then(res => res.json())
 .then(function(data){
     let item = data.data;
-
+    console.log(item)
     var itemlist = [];
-    var value1 = "";
-    var value2 = "";
+    var itemname = [];
     $.each(item, function(key, obj) {
         const imagelink = `https://ddragon.leagueoflegends.com/cdn/11.1.1/img/item/${key}.png`
-        value1 = obj.name;
-        itemlist.push([value1,imagelink])
+        if (itemname.includes(obj.name)){
+        }
+        else{
+            itemname.push(obj.name)
+            itemlist.push([key,obj.name,imagelink,obj.plaintext,obj.description,obj.gold.total,obj.gold.base,obj.gold.sell])
+        }
         });
-
+        console.log(itemlist)
     $.each(itemlist, function(index, value){
         $('#item').append(
             $('<div/>')
-            .addClass("card")
             .append(
-            $('<img/>')
-            .addClass("item-card-image")
-            .attr("src", value[1])
-            .attr("alt", value[0]),
+                $('<button/>')
+                .addClass("card")
+                .attr("data-bs-toggle","modal")
+                .attr("data-bs-target", ("#item" + index))
+                .append(
+                    $('<img/>')
+                    .addClass("item-card-image")
+                    .attr("src", value[2])
+                    .attr("alt", value[1]),
+                    $('<div/>')
+                    .addClass("card-body")
+                    .append(
+                    $('<h6/>')
+                    .addClass("card-title")
+                    .text(value[1])
+                )
+            ),
             $('<div/>')
-            .addClass("card-body")
+            .addClass("modal fade")
+            .attr("id", ("item" + index))
+            .attr("tabindex","-1")
+            .attr("arialabelledby","exampleModalLabel")
+            .attr("aria-hidden", "true")
             .append(
-            $('<h5/>')
-            .addClass("card-title")
-            .text(value[0]),
-        )));
+                $('<div/>')
+                .addClass("modal-dialog modal-dialog-centered")
+                .append(
+                    $('<div/>')
+                    .addClass("modal-content")
+                    .append(
+                        $('<div/>')
+                        .addClass("modal-header")
+                        .append(
+                            $('<img/>')
+                            .attr("src", value[2])
+                            .attr("alt", value[1]),
+                            $('<h5/>')
+                            .addClass("modal-title")
+                            .attr("id", "exampleModalLabel")
+                            .text(value[1])
+                        ),
+                        $('<div/>')
+                        .addClass("modal-body")
+                        .append(value[3], $('<br>'))
+                        .append(value[4], $('<br>'))
+                        .append("Cost: {0} ({1})".format(value[5],value[6]))
+                        .append($('<br>'), "Selling Price: " + value[7])
+                    )
+                )
+            )
+        ));
     });
-
 })
+
 
 
 // To Allow Text Formatting Function

@@ -1,10 +1,16 @@
 body {
-    background-color: grey;
+    user-select: none;
 }
 #champ-container{
     display: flex;
     justify-content: center;
     background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
+}
+.champion-container-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 .champion{
     display: flex;
@@ -28,30 +34,32 @@ body {
 }
 .card{
     display: flex;
-    width: 170px;
-    height: 170px;
+    width: 140px;
+    height: 140px;
     align-items: center;
     align-content: center;
-    margin-top: 3em;
+    margin-top: 1em;
     border-radius: 20px;
+    box-shadow: 2px 0px 2px 1px #000000, -2px 0px 2px 1px #000000;
 }
 .card-title{
+    display: flex;
+    justify-content: center;
     text-transform: capitalize;
     text-align: center;
 }
 .card-body{
-    width: 170px;
-    height: 100px;
-    padding: 20px 0px 0px 0px;
     text-align: center;
+    padding: 10px 5px 0px 5px;
 }
 #item-container{
     display: flex;
     justify-content: center;
+    background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
 }
 #item{
     display: flex;
-    width: 70%;
+    width: 80%;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
@@ -60,8 +68,9 @@ body {
     display: flex;
     height: 64px;
     width: 64px;
-    margin-top: 1.5em;
+    margin-top: 1em;
     border-radius: 10px;
+    border: 3px solid black;
     align-content: center;
 }
 .champ-name{
@@ -73,6 +82,7 @@ body {
     height: 180px;
     border-radius: 20px;
     margin-bottom: 10px;
+    box-shadow: 1px 0px 1px 1px #000000, -1px 0px 1px 1px #000000;
 }
 
 .champ-header{
@@ -126,6 +136,7 @@ body {
 }
 .ability-header{
     display: flex;
+    flex-wrap: wrap;
 }
 .ability-header img{
     height: 64px;
@@ -136,4 +147,13 @@ body {
     height: auto;
     line-height: 0.4;
     margin-left: 10px;
+}
+.modal-header img{
+    border: 3px solid black;
+}
+.modal-title{
+    margin-left: 10px;
+}
+.modal-header{
+    justify-content: unset;
 }
