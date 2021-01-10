@@ -15,7 +15,7 @@ function changechamp(name) {
     $.each(champlist, function (index, value) {
         if (name === value[0]) {
             // Each Champion has a different API, to access a specific Champion's API, change the name of the Champion before the .json at the end of the URL
-            fetch(`http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${value[0]}.json`)
+            fetch(`https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${value[0]}.json`)
                 .then(res => res.json())
                 .then(function (data) {
                     let champ = data.data;
@@ -291,7 +291,7 @@ function changechamp(name) {
 }
 // Appending Champion Page Content
 var champlist = [];
-fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json')
+fetch('https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json')
     .then(res => res.json())
     .then(function (data) {
         let champion = data.data;
@@ -327,7 +327,7 @@ fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json')
     });
 
 // Appending Item Page Content
-fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
+fetch('https://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
     .then(res => res.json())
     .then(function (data) {
         let item = data.data;
