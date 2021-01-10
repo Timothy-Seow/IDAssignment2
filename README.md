@@ -56,23 +56,43 @@ It contains all the items currently available in the game, whether its purchasab
 
 ## Testing
 
+1. Champion Buttons:
+    1. Go to the "Champion" Page
+    1. Try to click on any of the champion button and verify that the page refreshes into a new page containing relevant information about that particular champion
+1. Champion Page Search Bar:
+    1. Go to the "Champion" Page
+    1. Try to search any of the champion's name in the search bar and verify that only the champion with the name that you search appears on the website
+    1. Try to search with just a few letter and verify that champions containing those few words are the only ones appearing on the website
+    1. Verify that after searching, the champion button is clickable and refreshes into a new page containing relevant information about that particular champion
+1. Item Buttons:
+    1. Go to the "Item" Page
+    1. Try to click on any item button and verify that a modal box appears in the middle of the screen with the information of that particular item
+    1. Try to dismiss the modal box by clicking anywhere on the page or press escape and verify that the modal box got dismissed
+1. Item Page Search Bar:
+    1. Go to the "Item" Page
+    1. Try to search any of the item's name, effect or description in the search bar and verify that only the item with the name that you search appears on the website
+    1. Try to search with just a few letter and verify that items containing those few words are the only ones appearing on the website
+    1. Verify that after searching, the item buttons are clickable and a modal box containing information about that particular item appear after clicking
+
 ## Credits
 
 ### Content
 The content for each champion and item in this site were obtained from these APIs
 * [Champions](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json)
 * [Specific_Champion](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/Aatrox.json)
-    * Where "Aatrox" is the Champion Name
+    * Where "Aatrox" before the .json is the Champion Name
 * [Items](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json)
 
 ### Media
 The Images and Icons used in this site were obtained from these APIs
 * [Champion_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/Aatrox.png)
-    * Where "Aatrox" is the Champion Name
+    * Where "Aatrox" before the .png is the Champion Name
+* [Champion_Passive_Ability_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/passive/Aatrox_Passive.png)
+    * Where "Aatrox_Passive" before the .png is the Champion's Passive Ability ID
 * [Champion_Ability_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/spell/AatroxW.png)
-    * Where "AatroxW" is the Champion's Ability ID
+    * Where "AatroxW" before the .png is the Champion's Ability ID
 * [Item_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/item/1001.png)
-    * Where "1001" is the Item ID
+    * Where "1001" before the .png is the Item ID
 
 ### Acknowledgements
 * I received inspiration for this project from League of Legends
