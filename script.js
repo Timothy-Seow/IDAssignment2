@@ -1,6 +1,8 @@
 // To change page into Specific Champion Info when Champion is clicked
 function changechamp(name){
     var changechamp = document.getElementById('champ')
+    $('.champion-header').toggle();
+    $('.search-bar').toggle();
     changechamp.innerHTML = "";
     var championlist = [];
     var statslist = [];
@@ -320,6 +322,7 @@ fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
     $.each(itemlist, function(index, value){
         $('#item').append(
             $('<div/>')
+            .addClass("indiv-item")
             .append(
                 $('<button/>')
                 .addClass("card")
@@ -382,3 +385,25 @@ String.prototype.format = function () {
     var args = arguments;
     return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
     };
+
+// To allow JQuery Live Search for Champions
+$(document).ready(function(){
+    $("#champsearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#champ .indiv-champ").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});
+
+
+
+// To Allow JQuery Live Search for Items
+$(document).ready(function(){
+    $("#itemsearch").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#item .indiv-item").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});

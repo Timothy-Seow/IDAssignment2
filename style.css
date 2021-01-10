@@ -4,12 +4,15 @@ body {
 }
 #champ-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 800px;
 }
-.champion-container-header{
+.champion-header{
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-top: 50px;
     margin-bottom: 30px;
 }
 .champion{
@@ -54,7 +57,9 @@ body {
 }
 #item-container{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 800px;
 }
 #item{
     display: flex;
@@ -68,7 +73,23 @@ body {
     display: flex;
     width: 100%;
     justify-content: center;
+    margin-top: 50px;
     margin-bottom: 30px;
+}
+.search-bar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#itemsearch, #champsearch{
+    width: 50%;
+    border-style: none;
+    background-color: unset;
+    border-bottom-style: groove;
+    border-bottom-color: #000000;
+}
+#itemsearch:focus, #champsearch:focus{
+    outline: none;
 }
 
 .item-card-image{
@@ -171,6 +192,8 @@ body {
     margin-left: 10px;
 }
 .modal-header img{
+    height: 64px;
+    width: 64px;
     border: 3px solid black;
 }
 .modal-title{
