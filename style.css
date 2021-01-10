@@ -1,10 +1,10 @@
 body {
     user-select: none;
+    background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
 }
 #champ-container{
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
 }
 .champion-container-header{
     display: flex;
@@ -55,13 +55,20 @@ body {
 #item-container{
     display: flex;
     justify-content: center;
-    background-image: linear-gradient(130deg, #EADEDB 0%, #BC70A4 50%, #BFD641 80%);
 }
 #item{
     display: flex;
     width: 80%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.item-header{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 .item-card-image{
@@ -105,9 +112,18 @@ body {
     text-align: center;
     width: 70%;
 }
+.champ-lore{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 
 .champ-stats-holder{
     display: flex;
+}
+.champ-stats-header{
+    display: flex;
+    justify-content: center;
 }
 .champ-stats{
     display:flex;
@@ -119,7 +135,7 @@ body {
 .champ-info{
     display: flex;
     justify-content: space-around;
-    background-color: #815ca0;
+    background-color: #d69ac3;
     box-shadow: 2px 0px 10px 1px #000000, -2px 0px 10px 1px #000000;
     flex-wrap: wrap;
 }
@@ -130,6 +146,12 @@ body {
 .champ-ability{
     margin-top: 30px;
     width: 90%;
+}
+.champ-ability-header{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 .champ-spell{
     margin-bottom: 20px;
@@ -155,5 +177,83 @@ body {
     margin-left: 10px;
 }
 .modal-header{
+    display: flex;
     justify-content: unset;
+    flex-wrap: wrap;
+}
+.home-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.home-body{
+    width: 70%;
+}
+.home-header{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.home-desc{
+    text-align: center;
+    background-color: #d69ac3;
+    box-shadow: 2px 0px 10px 1px #000000, -2px 0px 10px 1px #000000;
+    border-radius: 20px;
+    padding: 20px 50px 20px 50px;
+}
+.home-desc img{
+    max-width: 50%;
+    max-height: 50%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.about-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.about-body{
+    width: 70%;
+}
+.about-header{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.about-desc{
+    text-align: center;
+    background-color: #d69ac3;
+    box-shadow: 2px 0px 10px 1px #000000, -2px 0px 10px 1px #000000;
+    border-radius: 20px;
+    padding: 20px 50px 20px 50px;
+}
+.about-desc img{
+    max-height: 100%;
+    max-width: 45%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: #000000;
+}
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.footer-content img {
+    max-width: 20%;
+    max-height: 20%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.footer-content p {
+	color: #EAE5E4;
 }

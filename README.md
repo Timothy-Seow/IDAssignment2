@@ -26,9 +26,13 @@ With so many different champion abilities and item bonuses,existing players can 
 
 ### Existing Features
 
-### Champion Page
+### Champion Info
 
 It contains all champions currently available in the game. Each champion when clicked, will display more information about that particular champion, including its name, tags, lore, base stats and abilities.
+
+### Item Info
+
+It contains all the items currently available in the game, whether its purchasable or not from the shop. Each item when clicked, will display information about the item, such as the bonuses it give,Active or Passive skills the item provide,description of the item,its cost and selling price (if any).
 
 ### Features Left to Implement
 
@@ -48,11 +52,27 @@ It contains all champions currently available in the game. Each champion when cl
 * [JavaScript](https://www.javascript.com/)
     * The project uses Javascript to make the website interactive.
 * [JQuery](https://jquery.com/)
-    * The project uses JQuery to fetch data from APIs and append to the website
+    * The project uses JQuery to fetch data from APIs and simplify DOM manipulation.
 
 ## Testing
 
 ## Credits
 
-## Acknowledgements
-* I received inspiration for this project's design from League of Legends
+### Content
+The content for each champion and item in this site were obtained from these APIs
+* [Champions](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json)
+* [Specific_Champion](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/Aatrox.json)
+    * Where "Aatrox" is the Champion Name
+* [Items](http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json)
+
+### Media
+The Images and Icons used in this site were obtained from these APIs
+* [Champion_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/champion/Aatrox.png)
+    * Where "Aatrox" is the Champion Name
+* [Champion_Ability_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/spell/AatroxW.png)
+    * Where "AatroxW" is the Champion's Ability ID
+* [Item_Image](https://ddragon.leagueoflegends.com/cdn/11.1.1/img/item/1001.png)
+    * Where "1001" is the Item ID
+
+### Acknowledgements
+* I received inspiration for this project from League of Legends

@@ -11,7 +11,6 @@ function changechamp(name){
                 .then(res => res.json())
                 .then(function(data){
                     let champ = data.data
-                    console.log(champ)
                     var info_name = "";
                     var info_lore = "";
                     var info_tags = "";
@@ -37,7 +36,6 @@ function changechamp(name){
                             abilitylist.push([obj.id,obj.name,obj.description,cost,obj.rangeBurn])
                         })
                         championlist.push(info_name, info_lore, info_tags)
-                        console.log(abilitylist)
                     })
                     $('#champ').append(
                         $('<div/>')
@@ -58,11 +56,19 @@ function changechamp(name){
                                     $('<div/>')
                                     .addClass("champ-title")
                                     .append(
-                                        $('<h4/>')
+                                        $('<h3/>')
                                         .text(championlist[0]),
                                         $('<h5/>')
                                         .text("Tags: " + championlist[2])
                                     ),
+                                )
+                            )
+                            .append(
+                                $('<div/>')
+                                .addClass("champ-lore")
+                                .append(
+                                    $('<h3/>')
+                                    .text("Lore")
                                 )
                             )
                             .append(
@@ -78,6 +84,12 @@ function changechamp(name){
                             .append(
                                 $('<div/>')
                                 .addClass("champ-stats")
+                                .append(
+                                    $('<h4/>')
+                                    .addClass("champ-stats-header")
+                                    .text("Base Stats")
+                                )
+                                .append('<br>')
                                 .append(
                                     $('<h5/>')
                                     .text("Health: {0} (+{1} Per Level)".format(statslist[0],statslist[1])),
@@ -104,6 +116,12 @@ function changechamp(name){
                             $('<div/>')
                             .addClass("champ-ability")
                             .append(
+                                $('<div/>')
+                                .addClass("champ-ability-header")
+                                .append(
+                                    $('<h3/>')
+                                    .text("Abilities")
+                                ),
                                 $('<div/>')
                                 .addClass("champ-spell")
                                 .append(
@@ -288,7 +306,6 @@ fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
 .then(res => res.json())
 .then(function(data){
     let item = data.data;
-    console.log(item)
     var itemlist = [];
     var itemname = [];
     $.each(item, function(key, obj) {
@@ -300,7 +317,6 @@ fetch('http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/item.json')
             itemlist.push([key,obj.name,imagelink,obj.plaintext,obj.description,obj.gold.total,obj.gold.base,obj.gold.sell])
         }
         });
-        console.log(itemlist)
     $.each(itemlist, function(index, value){
         $('#item').append(
             $('<div/>')
